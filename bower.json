@@ -1,0 +1,30 @@
+{
+  "name": "nodeshop",
+  "description": "node商店项目",
+  "main": "index.js",
+  "authors": [
+    "x1911"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "node",
+    "shop",
+    "express",
+    "bower"
+  ],
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "app/public/lib",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "angular": "^1.5.8",
+    "angular-route": "^1.5.8"
+  }
+}

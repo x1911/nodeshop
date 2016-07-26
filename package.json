@@ -1,0 +1,24 @@
+{
+  "name": "nodeshop",
+  "version": "1.0.0",
+  "description": "node 商店项目",
+  "main": "index.js",
+  "scripts": {
+    "test": "gulp test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://www.github.com/x1911/nodeshop"
+  },
+  "keywords": [
+    "node",
+    "shop",
+    "express",
+    "bower"
+  ],
+  "author": "x1911",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.14.0"
+  }
+}
