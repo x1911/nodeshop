@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<!--angular接管模块-->
+<html ng-app="shopApp" lang="en">
+<head>
+    <!--<meta charset="UTF-8">-->
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css">
+    <style>body{margin-top: 80px}</style>
+</head>
+
+<body>
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation" ng-controller="NavBarCtrl">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse"
+                data-target="#example-navbar-collapse">
+            <span class="sr-only">切换导航</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a href="#" class="navbar-brand">NodeShop</a>
+    </div>
+    <div class="collapse navbar-collapse" id="example-navbar-collapse">
+    <ul class="nav navbar-nav">
+        <!--高亮显示用ng-class,满足条件就使用active这个class,这个isActive()方法放在"NavBarCtrl"控制器的scope中-->
+        <li ng-class="{active:isActive('/home')}"><a href="#/home">首页</a></li>
+        <li ng-hide="isLogin" ng-class="{active:isActive('/users/reg')}"><a href="#/users/reg">注册</a></li>
+        <li ng-show="!isLogin" ng-class="{active:isActive('/users/login')}"><a href="#/users/login">登录</a></li>
+    </ul>
+        <!--用户信息-->
+        <ul class="nav navbar-nav navbar-right" ng-show="isLogin">
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">
+                    <!--普通属性标签调用值要用双大括号,如果用ng系列就不用-->
+                    <img src="{{isLogin.avatar}}" alt="{{isLogin.username}}">{{isLogin.username}}<span class="caret"></span>
+                </a>
+                <!--动态点击出现菜单-->
+                <ul class="dropdown-menu dropdown-menu-left">
+                    <li><a href="#" ng-click="logout()">退出</a></li>
+                </ul>
+            </li>
+        </ul>
+        </div>
+</nav>
+<!--该div ngview为模版内容-->
+<div class="row clearfix" ng-view></div>
+</body>
+
+<script src="lib/jquery/dist/jquery.min.js"></script>
+<script src="lib/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="lib/angular/angular.min.js"></script>
+<script src="lib/angular-route/angular-route.min.js"></script>
+<script src="appControl.js"></script>
+
+</html>

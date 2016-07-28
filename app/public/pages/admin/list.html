@@ -1,0 +1,64 @@
+<div class="col-md-12">
+    <div class="panel panel-default">
+        <div class="panel-heading clearfix">
+
+            <!--左边栏目-->
+            <div class="pull-left">
+                <button class="btn btn-success">增加</button>
+                <button class="btn btn-danger">批量删除</button>
+            </div>
+            <!--左边栏目end-->
+            
+            <!--右边列表-->
+            <div class="pull-right">
+                <input type="text" name="keyword" ng-model="keyword" ng-change="filterKeyword()">
+                <!--ng-change为修改时调用的方法-->
+            </div>
+            <!--右边列表 end-->
+
+            <!--列表body-->
+            <div class="panel-body">
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <td><input type="checkbox" id="selectAllWares"></td>
+                        <td>名称</td>
+                        <td>价格</td>
+                        <td>图片</td>
+                        <td>操作</td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <!--循环wares中的内容, wares来自scope的一个属性-->
+                        <tr ng-repeat="ware in wares">
+                            <td><input type="checkbox" data-id="{{ware._id}}" name="chkItem"></td>
+                            <td>{{ware.name}}</td>
+                            <td>{{ware.price}}</td>
+                            <td><img ng-src="ware.imgSrc" alt="{{ware.name}}" style="height: 50px;max-width: 100px;"></td>
+                            <td class="text-center">
+                                <!--操作列表-->
+                                <button class="btn btn-warning">编辑</button>
+                                <button class="btn btn-primary">查看</button>
+                                <button class="btn btn-danger">删除</button>
+
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <!--列表body end-->
+
+            <!--底部-->
+            <div class="panel-footer text-center">
+                <ul class="pagination pagination-sm">
+                    <li>上一页</li>
+                    <!--迭代显示所有页数-->
+                    <li ng-repeat="page in pages"></li>
+                    <li>下一页</li>
+                </ul>
+            </div>
+            <!--底部-->
+            
+        </div>
+    </div>
+</div>
